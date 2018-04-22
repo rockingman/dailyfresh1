@@ -2,13 +2,12 @@ import re
 from django.db.utils import IntegrityError
 from django.http.response import HttpResponse
 from django.shortcuts import render
-# Create your views here.
 from django.views.generic.base import View
 from itsdangerous import TimedJSONWebSignatureSerializer, SignatureExpired
-
 from apps.users.models import User
+from celery_tasks.tasks import send_active_mail
 from dailyfresh import settings
-from utils.commen import send_active_email
+
 
 
 class RegisterView(View):
@@ -55,12 +54,13 @@ class RegisterView(View):
         print(username)
         print(email)
         print(token)
-        send_active_email(username, email, token)
+        # 使用celery异步发送不会阻塞
+        send_active_mail.delay(username,email,token)
         # 响应请求
         return HttpResponse('进入登录界面！')
 
 class ActiveView(View):
-    # token
+    # tokenredids
     def get(self, request, token: str):
         """
         激活注册用户

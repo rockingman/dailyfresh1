@@ -44,12 +44,13 @@ INSTALLED_APPS = (
     'apps.orders',  # 订单
 )
 
-# # 配置控件显示样式
+# # 配置控件显示样式(后台管理)
 TINYMCE_DEFAULT_CONFIG = {
   'theme': 'advanced', # 丰富样式
   'width': 600,
   'height': 400,
 }
+# 中间件
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -118,3 +119,24 @@ USE_TZ = True
 STATIC_URL = '/static/'
 # 制定静态文件所在的目录
 STATICFILES_DIRS=[os.path.join(BASE_DIR,'static')]
+
+# 邮件发送配置
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'    # 导入邮件模块
+# EMAIL_HOST = 'smtp.qq.com'                 # 邮箱服务器地址（不同公司的邮箱服务器地址不一样）
+# EMAIL_PORT = 25                             # 邮箱服务器端口（默认都为25）
+# EMAIL_HOST_USER = '1913307039@qq.com'       # 发件人（天天生鲜官方邮箱账号）
+# EMAIL_HOST_PASSWORD = 'psixrellulptdbad'           # 邮箱客户端授权码，非邮箱登录密码
+# EMAIL_FROM = '天天生鲜<1913307039@qq.com>'   # 收件人接收到邮件后，显示在‘发件人’中的内容，如下图
+
+
+
+# 邮件发送配置
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'    # 导入邮件模块
+EMAIL_HOST = 'smtp.163.com'                 # 邮箱服务器地址
+EMAIL_PORT = 25                             # 邮箱服务器端口（默认都为25）
+EMAIL_HOST_USER = 'islet1010@163.com'       # 发件人（天天生鲜官方邮箱账号）
+EMAIL_HOST_PASSWORD = 'python123'           # 客户端授权码，非邮箱登录密码
+EMAIL_FROM = '天天生鲜<islet1010@163.com>'   # 打开邮件显示在‘发件人’中的签名
+
+
+

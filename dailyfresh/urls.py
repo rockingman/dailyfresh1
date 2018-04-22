@@ -19,10 +19,9 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     # 使用第三方的富文本编辑器：包含tinymce urls配置文件
-    url(r'^tinymce/',include('tinymce.urls')),
-    url(r'^users/', include('apps.users.urls',namespace='users')),
-    url(r'^cart/', include('apps.cart.urls',namespace='cart')),
-    url(r'^orders/', include('apps.orders.urls',namespace='orders')),
-    url(r'^', include('apps.goods.urls',namespace='goods')),
-
+    url(r'^tinymce/', include('tinymce.urls')),
+    url(r'^users/', include('apps.users.urls', namespace='users')),
+    url(r'^cart/', include('apps.cart.urls', namespace='cart')),
+    url(r'^orders/', include('apps.orders.urls', namespace='orders')),
+    url(r'^', include('apps.goods.urls', namespace='goods')),
 ]

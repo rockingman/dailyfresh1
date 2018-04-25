@@ -1,7 +1,9 @@
-from django.conf.urls import url,include
+from django.conf.urls import url
 
 from apps.goods import views
 
 urlpatterns = [
-    url(r'^index$',views.index,name='index')
+    # :8000/index 首页
+    url(r'^index$',views.IndexView.as_view(),name='index'),
+
 ]

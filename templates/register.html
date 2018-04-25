@@ -25,7 +25,7 @@
     <div class="r_con fr">
         <div class="reg_title clearfix">
             <h1>用户注册</h1>
-            <a href="#">登录</a>
+            <a href="{% url 'users:login' %}">登录</a>
         </div>
         <div class="reg_form clearfix">
             <form method="post">  {#  action="{% url 'users:register' %}" 可以不写 #}
@@ -64,7 +64,6 @@
 
             {# 显示出错信息 #}
             <div style="color: red">{{ errmsg }}</div>
-
 
         </div>
 

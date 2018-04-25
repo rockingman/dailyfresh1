@@ -1,12 +1,3 @@
-# 在celery服务器所在的项目中
-# 需要手动初始化django环境
-import os
-# from django.core.wsgi import get_wsgi_application
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "dailyfresh.settings")
-# application = get_wsgi_application()
-import django
-django.setup()
-
 from celery import Celery
 from django.core.mail import send_mail
 from dailyfresh import settings
